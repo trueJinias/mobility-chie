@@ -19,7 +19,7 @@ def fetch_articles(url):
         browser = p.chromium.launch()
         page = browser.new_page()
         page.goto(url)
-        page.wait_for_load_state("networkidle")
+        page.wait_for_selector("a.brz-a.brz-container-link", timeout=10000)
         html = page.content()
         browser.close()
 
